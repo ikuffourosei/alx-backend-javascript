@@ -1,20 +1,10 @@
 function getListStudents() {
-  const firstObject = {
-    id: 1,
-    firstName: 'Guillame',
-    location: 'San Francisco',
-  };
-  const secObject = {
-    id: 2,
-    firstName: 'James',
-    location: 'Columbia',
-  };
-  const ThirObject = {
-    id: 3,
-    firstName: 'Serena',
-    location: 'San Francisco',
-  };
-  return [firstObject, secObject, ThirObject];
+  const students = [
+    { id: 1, firstName: 'Guillaume', location: 'San Francisco' },
+    { id: 2, firstName: 'James', location: 'Columbia' },
+    { id: 5, firstName: 'Serena', location: 'San Francisco' },
+  ];
+  return students;
 }
 
 export default getListStudents;

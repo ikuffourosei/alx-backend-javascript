@@ -5,12 +5,16 @@ const read = readline.createInterface({
   output: process.stdout,
 });
 
-const ques = 'Welcome to Holberton School, what is your name?\n';
+console.log('Welcome to Holberton School, what is your name?');
 
-read.question(ques, (name) => {
-  console.log(`Your name is: ${name}`);
+read.question('', (name) => {
+  const names = name.trim();
+  if (names) {
+    console.log(`Your name is: ${name}`);
+  }
+  read.close();
 });
 
-process.on('exit', () => {
-  console.log('This important software is now closing');
+process.stdin.on('end', () => {
+  process.stdout.write('This important software is now closing\n');
 });

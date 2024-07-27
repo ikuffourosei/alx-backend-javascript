@@ -8,7 +8,7 @@ function countStudents(path) {
         return;
       }
       const newData = data.trim().split('\n');
-      // remove first line( header line)
+      // remove first line (header line)
       newData.shift();
       const students = {};
       let totalStudents = 0;
@@ -31,7 +31,8 @@ function countStudents(path) {
           const studentList = students[field].join(', ');
           console.log(`Number of students in ${field}: ${students[field].length}. List: ${studentList}`);
         }
-      } resolve(true);
+      }
+      resolve(true);
     });
   });
 }

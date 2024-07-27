@@ -7,7 +7,6 @@ function countStudents(path) {
         reject(new Error('Cannot load the database'));
         return;
       }
-
       const newData = data.trim().split('\n');
       // remove first line( header line)
       newData.shift();
@@ -32,9 +31,7 @@ function countStudents(path) {
           const studentList = students[field].join(', ');
           console.log(`Number of students in ${field}: ${students[field].length}. List: ${studentList}`);
         }
-      }
-
-      resolve();
+      } resolve(true);
     });
   });
 }

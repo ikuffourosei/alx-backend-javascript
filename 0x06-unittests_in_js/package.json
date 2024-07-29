@@ -6,19 +6,20 @@
     "private": true,
     "license": "MIT",
     "scripts": {
-        "lint": "./node_modules/.bin/eslint",
-        "lint-all": "./node_modules/.bin/eslint [0-9]*.js",
-        "lint-fix-all": "./node_modules/.bin/eslint --fix [0-9]*.js",
-        "test": "node ./node_modules/mocha/bin/mocha --require babel-register --exit",
-        "dev": "nodemon --exec babel-node --presets babel-preset-env ./full_server/server.js ./database.csv"
+        "lint": "eslint",
+        "lint-all": "eslint [0-9]*.js",
+        "lint-fix-all": "eslint --fix [0-9]*.js",
+        "test": "mocha --require @babel/register --exit",
+        "dev": "nodemon --exec babel-node --presets @babel/preset-env ./full_server/server.js ./database.csv"
     },
     "dependencies": {
         "chai-http": "^4.3.0",
         "express": "^4.17.1"
     },
     "devDependencies": {
-        "babel-cli": "^6.26.0",
-        "babel-preset-env": "^1.7.0",
+        "@babel/cli": "^7.18.10",
+        "@babel/preset-env": "^7.18.10",
+        "@babel/register": "^7.18.10",
         "chai": "^4.5.0",
         "eslint": "^6.4.0",
         "eslint-config-airbnb-base": "^14.0.0",

@@ -1,15 +1,22 @@
 const sinon = require('sinon');
-const Utils = require('./utils');
 const { expect } = require('chai');
-const sendPaymentRequestToApi = require('./3-payment');
+const { sendPaymentRequestToApi } = require('./utils');
+const Utils = require('./utils');
 
 describe('sendPaymentRequestToApi', () => {
-  it('sendPaymentRequestToApi uses the calculateNumber method of Utils', () => {
-    const bigBrother = sinon.spy(Utils);
+  let calculateNumberStub;
 
+  beforeEach(() => {
+    calculateNumberStub = sinon.stub(Utils, 'calculateNumber');
+  });
+
+  afterEach(() => {
+    calculateNumberStub.restore();
+  });
+
+  it('sendPaymentRequestToApi uses the calculateNumber method of Utils', () => {
+    calculateNumberStub.withArgs('SUM', 100, 20).returns(120);
     sendPaymentRequestToApi(100, 20);
-    expect(bigBrother.calculateNumber.calledWith('SUM', 100, 20)).to.be.true;
-    expect(bigBrother.calculateNumber.callCount).to.be.equal(1);
-    bigBrother.calculateNumber.restore();
+    expect(calculateNumberStub.calledOnceWithExactly('SUM', 100, 20)).to.be.true;
   });
 });
